@@ -1,4 +1,4 @@
-<a href="https://schliewesystems.com"><img src="header.svg" alt="$ whoami: Jack Schliewe, AI and cyber engineer at FarmMind, Baton Rouge. I build custom, secure hardware and software." width="100%"></a>
+<a href="https://schliewesystems.com"><img src="card.svg" alt="Jack Schliewe (thecandylane): stack, contributions, languages, merged pull requests and tokens measured by tokenhub. I build custom, secure hardware and software." width="100%"></a>
 
 My recent specialty is improving agent and human collaboration while developing secure software. Engineer at [FarmMind](https://farmmind.org), builder of [ref-radar](https://ref.lookit.space) on the side, graduating in December with a bachelor's in cybersecurity from LSU.
 
@@ -31,9 +31,5 @@ No install and no account for reading. The catalog is exported every night to [r
 - **Exploitation and reversing:** stack overflows, format strings and binary analysis with Ghidra and IDA Pro, in LSU coursework and CTFs.
 - **Agent security:** harnesses that isolate credentials, sandbox agent rooms, and block image exfiltration when rendering markdown. [Three red-team tools against my own agent](https://schliewesystems.com/blog/three-red-team-tools-one-agent).
 - **Homelab:** a multi-node environment over WireGuard, logs in Loki with alert rules based on MITRE ATT&CK, every host hardened.
-
-### `04` Stack
-
-`TypeScript` `Python` `Rust` `Dart/Flutter` `C/C++` · `Next.js` `FastAPI` `Django` `React` · `Cloudflare Workers` `Docker` `Proxmox` `WireGuard` · `Loki` `Prometheus` `Grafana` · `MCP` `LangChain` `Langfuse` `ONNX`
 
 <sub>[schliewesystems.com](https://schliewesystems.com) · [blog](https://schliewesystems.com/blog) · [ref.lookit.space](https://ref.lookit.space) · [linkedin](https://www.linkedin.com/in/thecandylane/) · agents: [llms.txt](https://schliewesystems.com/llms.txt)</sub>
