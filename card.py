@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 # Builds card.svg: stack, contributions, languages, merged pull requests and tokens, in schliewesystems.com's phosphor style.
 # Data: GitHub's GraphQL API through the gh CLI, tokenhub's stats on this Mac, and the Mac mini's Claude Code stats cache over ssh.
-# Usage: python3 card.py   (update.sh runs it every 6 hours and pushes the result)
+# Usage: python3 card.py   (update.sh loads local.env, runs it every 6 hours and pushes the result)
 import base64, datetime as dt, html, json, os, subprocess, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 LOGIN = 'thecandylane'
 FONT = os.environ.get('TEMPLE8', os.path.expanduser('~/Dev/code/jack-site/public/fonts/temple8.woff'))
 TOKENHUB = os.environ.get('TOKENHUB_DIR', os.path.expanduser('~/Dev/tokenhub'))
-MINI = os.environ.get('MINI_SSH', 'candylane@candylane-macmini')
+MINI = os.environ.get('MINI_SSH')  # user@host for the Mac mini; set in local.env, which stays off GitHub
 TOKEN_GOAL = 100e9
 BG, FG, MUTED, ACCENT, FRAME = '#030d07', '#c8f5d3', '#5d8f6a', '#5dff8a', '#174224'
 
@@ -73,6 +73,8 @@ def tokens():
     read = ('import json,os;d=json.load(open(os.path.expanduser("~/.claude/stats-cache.json")));'
             'print(sum(u.get(k,0) for u in d["modelUsage"].values() for k in ("inputTokens","outputTokens","cacheReadInputTokens","cacheCreationInputTokens")))')
     try:
+        if not MINI:
+            raise RuntimeError('MINI_SSH not set')
         p = subprocess.run(['ssh', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=8', MINI, f"python3 -c '{read}'"],
                            capture_output=True, text=True, timeout=30)
         out['mini'] = int(p.stdout.strip())
